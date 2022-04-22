@@ -1,0 +1,27 @@
+syntax = "proto3";//proto版本
+
+package services;
+
+option go_package = "./services;services";//生成.pb.go文件的保存位置和包名
+/*
+  请求消息
+  */
+message ProdRequest {
+  int32 prod_id = 1;
+}
+/*
+  响应消息
+  */
+message ProdResponse {
+  int32 prod_stock =1;
+}
+
+service ProdService {
+  /*
+  自己定义的服务接口，需要由服务端去实现，可以被客户端调用
+  接口名：GetProdStock
+  入参：ProdRequest message
+  返回值：ProdResponse message
+  */
+  rpc GetProdStock (ProdRequest) returns (ProdResponse) ;
+}
