@@ -23,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProdServiceClient interface {
 	//
-	//自己定义的服务接口
+	//自己定义的服务接口，需要由服务端去实现，可以被客户端调用
 	//接口名：GetProdStock
 	//入参：ProdRequest message
 	//返回值：ProdResponse message
@@ -52,7 +52,7 @@ func (c *prodServiceClient) GetProdStock(ctx context.Context, in *ProdRequest, o
 // for forward compatibility
 type ProdServiceServer interface {
 	//
-	//自己定义的服务接口
+	//自己定义的服务接口，需要由服务端去实现，可以被客户端调用
 	//接口名：GetProdStock
 	//入参：ProdRequest message
 	//返回值：ProdResponse message
